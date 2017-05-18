@@ -11,6 +11,8 @@ class Brand extends Model
         'id','name'
     ];
 
+    public $timestamps = false;
+
     public function watches()
     {
         return $this->hasMany(Product::class);

@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     protected $fillable = [
-        'first_name','last_name','email', 'password','phone'
+        'first_name','last_name','email','phone',
+        'state','city','address','postal_code'
     ];
 
     public function address_c()

@@ -13,6 +13,8 @@ class Address extends Model
         'id','state','city', 'address', 'postal_code'
     ];
 
+    public $timestamps = false;
+
     public function users_adr()
     {
         return $this->hasMany('App\User');

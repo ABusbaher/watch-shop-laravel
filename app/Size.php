@@ -11,6 +11,8 @@ class Size extends Model
         'id','size'
     ];
 
+    public $timestamps = false;
+
     public function watches_s()
     {
         return $this->hasMany(Product::class);

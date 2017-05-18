@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'ProductsController@home')->name('home');
+Route::get('/index', 'ProductsController@home')->name('index');
+
+Auth::routes();
+//kad zajebava logout
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,10 +1,10 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+#nav {
+    margin-bottom: 30px;
+}
 
+.navbar-fixed-top {
+    background: rgba(0, 0, 0, 0.8);
+}
 
 .navbar-fixed-top .nav {
     padding: 15px 0;

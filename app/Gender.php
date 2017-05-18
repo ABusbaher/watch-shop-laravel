@@ -11,6 +11,8 @@ class Gender extends Model
         'id','name'
     ];
 
+    public $timestamps = false;
+
     public function watches_g()
     {
         return $this->hasMany(Product::class);
