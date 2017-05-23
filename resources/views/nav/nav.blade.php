@@ -25,35 +25,37 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Citizen</a></li>
-                            <li><a href="#">Armani</a></li>
-                            <li><a href="#">Rolex</a></li>
+                            @foreach($brands as $brand)
+                                <li><a href="{{URL::to('men/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Women
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Rolex</a></li>
-                            <li><a href="#">Citizen</a></li>
-                            <li><a href="#">Armani</a></li>
-                            <li><a href="#">Casio</a></li>
+                            @foreach($brands as $brand)
+                                <li><a href="{{URL::to('women/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kids
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Armani</a></li>
-                            <li><a href="#">Festina</a></li>
-                            <li><a href="#">Seiko</a></li>
+                            @foreach($brands as $brand)
+                                <li><a href="{{URL::to('kids/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li><a href="#">SALE</a></li>
+                    <li><a href="{{route('sale')}}">SALE</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart (2)</a></li>
                     @if (Auth::guest())
+                        <li><a href="{{route('cart')}}">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart (2)
+                            </a>
+                        </li>
                         <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li>
                             <a href="{{ url('/login') }}" onclick="event.preventDefault(); document.getElementById
@@ -62,6 +64,21 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                         </li>
                     @else
+                        @if(Auth::user()->isAdmin())
+                            <li><a href="{{ url('/admin/users') }}">Backend</a></li>
+                        @else
+                        <!-----LINK SUBSCRIBER------->
+                            <li><a href="{{route('cart')}}">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart (2)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{!! Url::to('user',Auth::user()->id) !!}">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    Hi {{ Auth::user()->first_name }}
+                                </a>
+                            </li>
+                        @endif
                         <li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     @endif
                 </ul>

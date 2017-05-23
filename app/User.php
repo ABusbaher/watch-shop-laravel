@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Order;
-use App\Address;
 use App\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -36,13 +35,29 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role','role_id');
     }
 
-    public function address()
-    {
-        return $this->belongsTo('App\Address', 'address_id');
-    }
-
     public function orders_u()
     {
         return $this->hasMany('App\Order');
+    }
+
+    /**
+     * User is administrator
+     */
+    public function isAdmin(){
+        if($this->role_id == 1){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * User is subscriber
+     */
+    public function isSubscriber()
+    {
+        if($this->role_id == 2){
+            return true;
+        }
+        return false;
     }
 }

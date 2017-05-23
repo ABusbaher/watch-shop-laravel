@@ -6,6 +6,7 @@
     Watch shop
 @endsection
 @section('content')
+
     <div class="row">
         <!--banner-starts-->
         <div class="bnr" id="home">

@@ -542,4 +542,34 @@ span.reducedfrom {
 
 /*--end-cart--*/
 
-/*****CHECKOUT-PAGE**/
+/****BACKEND***/
+#gallery-images img {
+    max-height: 200px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#gallery-images ul {
+    margin: 0;
+    padding: 0;
+}
+
+#gallery-images li {
+    margin: 0;
+    padding: 0 10px 0 0;
+    list-style: none;
+    float:left;
+}
+
+.alert-success{
+    border: 2px solid #196c4b;
+    border-radius: 20px;
+}
+/* NEE RADIII
+.all h5 {
+    font-weight: bold;
+}
+.all img{
+    max-height: 200px;
+}
+*/
