@@ -1,5 +1,6 @@
 @extends('layouts.backend-master')
 @section('styles')
+    <link rel="stylesheet" href="{{URL::asset('css/validacija.css')}}">
     <link rel="stylesheet" href="{{URL::to('src/css/lightbox.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
 @endsection
@@ -22,7 +23,7 @@
         @endif
     </div>
 
-    <div class="row">
+    <div class="row" id="img">
         <!--SHOWING IMAGES-->
         <div id="gallery-images">
             <h2>Added images:</h2>
@@ -32,6 +33,7 @@
                         <a href="{{URL::asset('src/images/'.$image->name)}}"  data-lightbox="mygallery">
                             <img src="{{URL::asset('src/images/'.$image->name)}}" class="img-responsive"
                                  alt="{{$image->name}}">
+                            <a href="#"><button class="btn btn-danger">Delete picture</button></a>
                         </a>
                     </li>
                 @endforeach
@@ -53,7 +55,7 @@
         <div class="row">
             <h2 class="text-center">Edit watch:</h2>
             {!! Form::model($watch,['method'=> 'PATCH','action' => ['AdminProductsController@update',
-                $watch->id]]) !!}
+                $watch->id],'id'=>'editWatch','data-parsley-validate'=>'']) !!}
             <div class="form-group">
                 {!! Form::label('gender_id', 'Choose a gender:') !!}
                 {!! Form::select('gender_id',$genders, $watch->gender_id, ['class' => 'form-control']) !!}
@@ -66,23 +68,25 @@
 
             <div class="form-group">
                 {!! Form::label('model', 'Model:') !!}
-                {!! Form::text('model', $watch->model, ['class' => 'form-control']) !!}
+                {!! Form::text('model', $watch->model, ['class' => 'form-control','data-parsley-required']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('description', 'Description') !!}
-                {!! Form::textarea('description', $watch->description, ['class' => 'form-control']) !!}
+                {!! Form::textarea('description', $watch->description, ['class' => 'form-control','data-parsley-required']) !!}
             </div>
 
 
             <div class="form-inline">
                 <div class="pull-left">
                     <label for="old_price">Old price:</label>
-                    <input type="text" name="old_price" value={{$watch->old_price}} id="old_price" class="form-control">
+                    <input type="text" name="old_price" value={{$watch->old_price}} id="old_price"
+                           data-parsley-required data-parsley-type="number" class="form-control">
                 </div>
                 <div class="pull-right">
                     <label id="move" for="price">Price:</label>
-                    <input type="text" name="price" value={{$watch->price}} id="price" class="form-control">
+                    <input type="text" name="price" value={{$watch->price}} id="price"
+                           data-parsley-required data-parsley-type="number" class="form-control">
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -106,11 +110,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
     <script type="text/javascript" src="{{URL::asset('js/lightbox.min.js')}}"></script>
     <script>
+        /**++ validation for form ****/
+        $(function () {
+            $('#editWatch').parsley().on('field:validated', function() {
+                var ok = $('.parsley-error').length === 0;
+            })
+        });
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        /**** ADDING IMAGES ****/
         Dropzone.options.addImages = {
             maxFilesize: 2, // MB
             acceptedFiles: 'image/*',
