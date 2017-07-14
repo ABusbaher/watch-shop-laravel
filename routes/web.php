@@ -16,9 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('/index', 'ProductsController@home')->name('index');
-Route::get('/sale', 'ProductsController@watchOnSale')->name('sale');
-Route::get('/cart', 'ProductsController@showCart')->name('cart');
-//Route::get('/{gender}/{brand}', 'ProductsController@watchesByCategory')->name('watchCategory');
+Route::group(['prefix'=> 'watches'], function () {
+    Route::get('/sale', 'ProductsController@watchOnSale')->name('sale');
+    Route::get('/cart', 'CartController@showCart')->name('cart');
+    Route::get('/checkout', 'OrderController@checkout')->name('checkout');
+    Route::get('/{gender}/{brand}', 'ProductsController@watchesByCategory')->name('watchCategory');
+    Route::get('/{gender}/{brand}/{slug}', 'ProductsController@singleWatch')->name('singleWatch');
+});
+
+Route::get('user/{name}', function ($name) {
+})->where('name', '[A-Za-z]+');
+
 
 Auth::routes();
 //kad zajebava logout
@@ -27,7 +35,24 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('watches', 'AdminProductsController');
+Route::group(['middleware'=>'admin'],function() {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::resource('watches', 'AdminProductsController');
+        Route::get('/orders', 'OrderController@show_orders')->name('orders');
+    });
+    Route::post('/addImages', 'AdminProductsController@addImages')->name('addImages');
+    Route::delete('/delImage/{id}', 'AdminProductsController@deleteImage')->name('delImage');
+    Route::put('/updatePayment/{id}', 'OrderController@updatePayment')->name('updatePayment');
+
 });
-Route::post('/addImages', 'AdminProductsController@addImages')->name('addImages');
+
+Route::group(['middleware'=>'subscriber'],function() {
+    Route::post('/storePayment', 'OrderController@storePayment')->name('storePayment');
+});
+
+Route::post('/storeComment', 'CommentsController@store')->name('storeComment');
+Route::post('/storeOrder', 'OrderController@storeOrder')->name('storeOrder');
+Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
+Route::delete('/deleteItem/{id}', 'CartController@deleteItem')->name('deleteItem');
+Route::put('/updateCart/{id}', 'CartController@updateCart')->name('updateCart');
+

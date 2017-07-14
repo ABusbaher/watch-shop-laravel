@@ -13,9 +13,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ url('/index') }}">
                     <img src="{{URL::to('src/images/18da685d-9f9c-4911-8882-9824f0206504.png')}}" style="width: 180px;
-                    height:
-                    50px;"
-                         alt="">
+                    height: 50px;" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +24,8 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @foreach($brands as $brand)
-                                <li><a href="{{URL::to('men/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                                <li><a href="{{URL::to('watches/men/'.$brand->slug)}}">{{(ucfirst($brand->name))
+                                }}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -35,7 +34,8 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @foreach($brands as $brand)
-                                <li><a href="{{URL::to('women/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                                <li><a href="{{URL::to('watches/women/'.$brand->slug)}}">{{(ucfirst($brand->name))
+                                }}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -44,7 +44,8 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @foreach($brands as $brand)
-                                <li><a href="{{URL::to('kids/'.$brand->name)}}">{{(ucfirst($brand->name))}}</a></li>
+                                <li><a href="{{URL::to('watches/kids/'.$brand->slug)}}">{{(ucfirst($brand->name))
+                                }}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -52,8 +53,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
-                        <li><a href="{{route('cart')}}">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart (2)
+                        <li><a id="cart" href="{{route('cart')}}">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart ({{Cart::count()}})
                             </a>
                         </li>
                         <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -65,15 +66,16 @@
                         </li>
                     @else
                         @if(Auth::user()->isAdmin())
-                            <li><a href="{{ url('/admin/users') }}">Backend</a></li>
+                            <li><a href="{{ url('/admin/watches') }}">Backend</a></li>
                         @else
                         <!-----LINK SUBSCRIBER------->
                             <li><a href="{{route('cart')}}">
-                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart (2)
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
+                                    ({{Cart::count()}})
                                 </a>
                             </li>
                             <li>
-                                <a href="{!! Url::to('user',Auth::user()->id) !!}">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-user"></span>
                                     Hi {{ Auth::user()->first_name }}
                                 </a>

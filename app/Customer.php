@@ -12,7 +12,7 @@ class Customer extends Model
         'state','city','address','postal_code'
     ];
 
-    public function orders_c()
+    public function orders()
     {
         return $this->hasMany('App\Order');
     }

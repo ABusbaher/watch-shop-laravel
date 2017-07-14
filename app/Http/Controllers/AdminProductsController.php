@@ -155,6 +155,23 @@ class AdminProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $watch = Product::findOrFail($id);
+        $images = Image::where('product_id',$id)->get();
+
+        foreach ($images as $image){
+            unlink('src/images/'. $image->name);
+            $image->delete();
+        }
+
+        $watch->delete();
+        Session::flash('watch_deleted','Watch successfully deleted.');
+        return redirect('admin/watches');
+    }
+
+    public function deleteImage($id){
+        $image = Image::findOrFail($id);
+        unlink('src/images/'. $image->name);
+        $image->delete();
+        return response()->json(['done']);
     }
 }

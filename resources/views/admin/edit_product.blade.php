@@ -10,6 +10,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="alert alert-danger" id="result"></div>
         <!-----SHOWING SESSIONS------->
         @if(Session::has('watch_created'))
             <div class="alert alert-success col-md-8 col-md-offset-2">
@@ -35,6 +36,15 @@
                                  alt="{{$image->name}}">
                             <a href="#"><button class="btn btn-danger">Delete picture</button></a>
                         </a>
+                        {!! Form::open(['method'=>'DELETE', 'action' => ['AdminProductsController@deleteImage',
+                            $image->id],
+                            'class'=>'delete_image']) !!}
+                            <div class="danger">
+                                <button class="delete-modal btn btn-danger" type="submit"><span class='glyphicon
+                                glyphicon-trash'></span> Delete image</button>
+                            </div>
+                        {!! Form::close() !!}
+
                     </li>
                 @endforeach
             </ul>
@@ -77,7 +87,7 @@
             </div>
 
 
-            <div class="form-inline">
+            <div class="form-inline" id="inline">
                 <div class="pull-left">
                     <label for="old_price">Old price:</label>
                     <input type="text" name="old_price" value={{$watch->old_price}} id="old_price"
@@ -91,16 +101,32 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="form-check">
+            <div class="form-inline pull-left">
+                <label for="discount">Discount(number in %):</label>
+                <input type="text" name="discount" value={{$watch->discount}} id="discount" class="form-control"
+                       data-parsley-required data-parsley-type="number">
+            </div>
+
+            <div class="form-check pull-right">
                 <label class="form-check-label">
-                    <input class="form-check-input" name="sale" type="checkbox"
-                        {{$watch->sale==1 ? 'checked' : ''}} />
-                        Put on sale list
+                    <input class="form-check-input" name="sale" type="checkbox" value="1" @if($watch->sale == 1)
+                    checked @endif >
+                    Put on sale list
                 </label>
             </div>
 
-            <button class="btn btn-success pull-right" type="submit">Edit watch</button>
+            <div class="clearfix"></div>
 
+            <button class="btn btn-success pull-right" type="submit"><span class='glyphicon
+                                glyphicon-time'></span> Edit watch</button>
+
+            {!! Form::close() !!}
+            {!! Form::open(['method'=>'DELETE', 'action' => ['AdminProductsController@destroy',
+                            $watch->id]]) !!}
+            <div class="danger">
+                <button class="pull-left btn btn-danger" type="submit"><span class='glyphicon
+                                glyphicon-trash'></span> Delete watch</button>
+            </div>
             {!! Form::close() !!}
         </div>
     </div>
@@ -112,6 +138,10 @@
     <script>
         /**++ validation for form ****/
         $(function () {
+<<<<<<< HEAD
+            $( ".alert-danger" ).hide();
+=======
+>>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
             $('#editWatch').parsley().on('field:validated', function() {
                 var ok = $('.parsley-error').length === 0;
             })
@@ -122,6 +152,27 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+<<<<<<< HEAD
+
+        /**** DELETE ONE IMAGE  ****/
+        $('.delete_image').submit(function(event) {
+            event.preventDefault();
+            var c_obj = $(this).parents("li");
+            var url = $(this).attr("action");
+            $.ajax({
+                dataType: 'json',
+                type: 'DELETE',
+                url: url,
+            }).done(function (data) {
+                c_obj.remove();
+                $('.alert-danger').show();
+                $('.alert-danger').html('<h4 class="text-center">Image successfully deleted</h4>');
+                $('.alert-danger').delay(3000).fadeOut();
+            })
+        })
+
+=======
+>>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
         /**** ADDING IMAGES ****/
         Dropzone.options.addImages = {
             maxFilesize: 2, // MB
@@ -145,8 +196,6 @@
                 $(ImageList).append('<li><a href ="' + ImageSrc + '"><img src="'+ ImageSrc + '"</a></li>');
             }
         };
-        $(document).ready(function() {
 
-        })
     </script>
 @endsection

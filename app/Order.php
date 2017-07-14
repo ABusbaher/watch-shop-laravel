@@ -10,21 +10,25 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'id','total', 'customer_id','user_id'
+        'id','total', 'customer_id',
+        'user_id','qty','size','was_paid'
     ];
 
-    public function user_o()
+    public function user()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
 
-    public function customer_o()
+    public function customer()
     {
-        return $this->belongsTo('App\Customer', 'customer_id');
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
-    public function orderItems()
+    public function products()
     {
-        return $this->belongsToMany('App\Product')->withPivot('quantity','total');
+        return $this->belongsToMany('App\Product','order-product','order_id','product_id')
+            //->withPivot('total','paid')
+            //->withTimestamps()
+            ;
     }
 }

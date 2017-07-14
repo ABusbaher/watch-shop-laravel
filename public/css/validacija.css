@@ -2,9 +2,31 @@
     color: #f00;
     font-weight: bold;
     font-size: 12px;
+<<<<<<< HEAD
+    display: inline-block;
+}
+
+
+#img {
+    margin-bottom: 20px !important;
+}
+
+ul.parsley-errors-list {
+    margin:0;
+    padding-left: 5px;
+}
+<<<<<<< Updated upstream
+
+#img {
+    margin-bottom: 20px !important;
+}
+=======
+=======
     display: block;
 }
 
 #img {
     margin-bottom: 20px !important;
 }
+>>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
+>>>>>>> Stashed changes

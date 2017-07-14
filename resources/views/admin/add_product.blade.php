@@ -34,7 +34,7 @@
                     </div>
 
 
-                    <div class="form-inline">
+                    <div class="form-inline" id="inline">
                         <div class="pull-left">
                             <label for="old_price">Old price:</label>
                             <input type="text" name="old_price" id="old_price" class="form-control"
@@ -48,7 +48,13 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-inline pull-left">
+                        <label for="discount">Discount(number in %):</label>
+                        <input type="text" name="discount" id="discount" class="form-control"
+                                   data-parsley-required data-parsley-type="number">
+                    </div>
+
+                    <div class="form-check pull-right">
                         <label class="form-check-label">
                             <input class="form-check-input" name="sale" type="checkbox" value="1">
                             Put on sale list

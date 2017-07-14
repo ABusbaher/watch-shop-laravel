@@ -4,7 +4,16 @@
 @endsection
 @section('content')
     <div class="container">
-        <div class="col-md-8 col-md-offset-2"></div>
+
+        <!-----SHOWING SESSIONS------->
+        @if(Session::has('watch_deleted'))
+            <div class="row">
+                <div class="alert alert-success col-md-8 col-md-offset-2">
+                    <h4 class="text-center">{{session('watch_deleted')}}</h4>
+                </div>
+            </div>
+        @endif
+
             <div class="row">
                 <div class="all">
                     <h2 class="text-center">List of all watches</h2>
