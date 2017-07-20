@@ -24,12 +24,22 @@
         src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
         crossorigin="anonymous"></script>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="{{URL::to('js/parsley.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::to('js/laravel-parsley.min.js')}}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+<<<<<<< Updated upstream
+
+=======
+=======
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{URL::to('js/parsley.min.js')}}"></script>
+<script type="text/javascript" src="{{URL::to('js/laravel-parsley.min.js')}}"></script>
+>>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
+>>>>>>> Stashed changes
 @yield('scripts')
 </body>
 </html>
