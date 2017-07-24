@@ -70,7 +70,7 @@
         $(function () {
             $( ".alert-success" ).hide();
         });
-        /*******UPDATING ORDER PAYMENT*******/
+        /*******UPDATING QUANTITY OF ITEM*******/
         $('.form-inline').on('change',function(event) {
             event.preventDefault();
             var id = $(this).attr("data-id");

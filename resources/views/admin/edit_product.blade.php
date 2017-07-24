@@ -34,7 +34,6 @@
                         <a href="{{URL::asset('src/images/'.$image->name)}}"  data-lightbox="mygallery">
                             <img src="{{URL::asset('src/images/'.$image->name)}}" class="img-responsive"
                                  alt="{{$image->name}}">
-                            <a href="#"><button class="btn btn-danger">Delete picture</button></a>
                         </a>
                         {!! Form::open(['method'=>'DELETE', 'action' => ['AdminProductsController@deleteImage',
                             $image->id],
@@ -138,10 +137,7 @@
     <script>
         /**++ validation for form ****/
         $(function () {
-<<<<<<< HEAD
             $( ".alert-danger" ).hide();
-=======
->>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
             $('#editWatch').parsley().on('field:validated', function() {
                 var ok = $('.parsley-error').length === 0;
             })
@@ -152,7 +148,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-<<<<<<< HEAD
 
         /**** DELETE ONE IMAGE  ****/
         $('.delete_image').submit(function(event) {
@@ -171,8 +166,6 @@
             })
         })
 
-=======
->>>>>>> e2b79962d0f8253d5679a40ffe1ed4a4af2df3bb
         /**** ADDING IMAGES ****/
         Dropzone.options.addImages = {
             maxFilesize: 2, // MB
@@ -196,6 +189,8 @@
                 $(ImageList).append('<li><a href ="' + ImageSrc + '"><img src="'+ ImageSrc + '"</a></li>');
             }
         };
+        $(document).ready(function() {
 
+        })
     </script>
 @endsection
