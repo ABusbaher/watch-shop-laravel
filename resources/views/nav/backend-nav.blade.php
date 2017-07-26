@@ -13,9 +13,7 @@
                     </button>
                     <a class="navbar-brand" href="{{ url('/index') }}">
                         <img src="{{URL::to('src/images/18da685d-9f9c-4911-8882-9824f0206504.png')}}" style="width: 180px;
-                    height:
-                    50px;"
-                             alt="">
+                    height:80px;" alt="">
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->

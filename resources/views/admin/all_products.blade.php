@@ -30,7 +30,7 @@
                             <h5><strong> Gender: {{strtoupper($watch->gender)}}</strong></h5>
                             <h5><strong>Brand:{{strtoupper($watch->brand)}}</strong></h5>
                             <h5><strong>Model: {{strtoupper($watch->model)}}</strong></h5>
-                            <h5><strong>{{$watch->price}}</strong></h5>
+                            <h5><strong>Price: ${{$watch->price}}</strong></h5>
                             <a href="{{route('watches.show',$watch->id)}}">
                                 <button class="btn btn-primary pull-right">Check</button>
                             </a>

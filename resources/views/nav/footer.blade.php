@@ -10,12 +10,14 @@
                  alt="">
 
             <p class="footer-links">
-                <a href="#">Home</a>
+                <a href="{{ url('/index') }}">Home</a>
                 ·
-                <a href="#">Sign Up</a>
-                ·
-                <a href="#">Login</a>
-                ·
+                @if (Auth::guest())
+                    <a href="{{ url('/register') }}">Sign Up</a>
+                    ·
+                    <a href="{{ url('/login') }}">Login</a>
+                    ·
+                @endif
                 <a href="#">Contact</a>
             </p>
 
@@ -50,10 +52,11 @@
 
             <div class="footer-icons">
 
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/aleksandar-bu%C5%A1baher-430537137/"><i class="fa
+                fa-linkedin"></i></a>
+                <a target="_blank" href="https://github.com/ABusbaher/watch-shop-laravel"><i class="fa fa-github"></i></a>
+                <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
 
             </div>
 

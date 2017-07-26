@@ -70,6 +70,9 @@ class ProductsController extends Controller
             })->first()
         */
         $watch = Product::where('slug', $slug)->first();
+        if(!$watch){
+            return redirect('/index');
+        }
         $gender = $watch->gender->name;
         $brand = $watch->brand->slug;
 
