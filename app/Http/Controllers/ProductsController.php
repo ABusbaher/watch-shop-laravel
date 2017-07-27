@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Comment;
 use App\Image;
+use App\Mail\ContactUsMail;
 use App\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 use App\Gender;
 use Illuminate\Http\Request;
@@ -27,6 +29,10 @@ class ProductsController extends Controller
             ->limit(6)
             ->get();
         return view('frontend.home',compact('watches'));
+    }
+
+    public function contactUs(){
+        return view('frontend.contactUs');
     }
 
     public function watchOnSale(){
@@ -92,6 +98,28 @@ class ProductsController extends Controller
             ->get();
 
         return view('frontend.singleWatch',compact('watch','gender','brand','images','watches','comments'));
+    }
+
+    public function contact(Request $request){
+        $mail = $request->all();
+        $data = [
+            'email'     => $mail['email'],
+            'subject'   => $mail['subject'],
+            'message1'   => $mail['message'],
+            'name'      => $mail['name'],
+        ];
+       /* other way
+        $receiverAddress = 'b860174afc-ae4fab@inbox.mailtrap.io';
+        Mail::to($receiverAddress)->send(new ContactUsMail($data));*/
+
+        Mail::send('mails.contactForm', $data, function($message) use ($data)
+        {
+            $message->from($data['email']);
+            $message->to('b860174afc-ae4fab@inbox.mailtrap.io');
+            $message->subject($data['subject']);
+        });
+        //return redirect()->back();
+        return response()->json([$data]);
     }
 
 }

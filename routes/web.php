@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', 'ProductsController@home')->name('index');
+Route::get('/contactUs', 'ProductsController@contactUs')->name('contactUs');
 Route::group(['prefix'=> 'watches'], function () {
     Route::get('/sale', 'ProductsController@watchOnSale')->name('sale');
     Route::get('/cart', 'CartController@showCart')->name('cart');
@@ -55,4 +56,6 @@ Route::post('/storeOrder', 'OrderController@storeOrder')->name('storeOrder');
 Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
 Route::delete('/deleteItem/{id}', 'CartController@deleteItem')->name('deleteItem');
 Route::put('/updateCart/{id}', 'CartController@updateCart')->name('updateCart');
+Route::post('/contact', 'ProductsController@contact')->name('contact');
+
 

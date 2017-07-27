@@ -64,7 +64,7 @@ class Product extends Model
     {
         /*
         return $this->belongsToMany('App\Order')
-            ->withPivot('quantity','size','total')
+            ->withPivot('paid','total')
             ->withTimestamps(); */
         return $this->belongsToMany('App\Order','order-product','order_id','product_id');
     }

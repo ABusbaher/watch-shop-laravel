@@ -13,7 +13,7 @@
 
                             <input type="hidden" name="role_id" id="role_id" value="2">
 
-                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('first_name') ? 'errors' : '' }}">
                                 <label for="first_name" class="col-md-4 control-label">First name</label>
 
                                 <div class="col-md-6">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('phone') ? 'errors' : '' }}">
                                 <label for="phone" class="col-md-4 control-label">Phone number</label>
 
                                 <div class="col-md-6">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('password') ? 'errors' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Password</label>
 
                                 <div class="col-md-6">

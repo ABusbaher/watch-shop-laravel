@@ -52,16 +52,17 @@
                     <li><a href="{{route('sale')}}">SALE</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{route('contactUs')}}"><i class="fa fa-envelope"></i> Contact</a></li>
                     @if (Auth::guest())
                         <li><a id="cart" href="{{route('cart')}}">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart ({{Cart::count()}})
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart
+                                ({{Cart::count()}})
                             </a>
                         </li>
                         <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li>
                             <a href="{{ url('/login') }}" onclick="event.preventDefault(); document.getElementById
-                            ('logout-form').submit();"><span class="glyphicon glyphicon-log-in"></span>
-                                    Login</a>
+                            ('logout-form').submit();"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                         </li>
                     @else

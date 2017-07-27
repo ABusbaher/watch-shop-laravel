@@ -98,6 +98,7 @@
                                     <div class="form-group">
                                         <label for="username">Your name:</label>
                                         <input name="username" id="username" type="text" class="form-control"
+                                               value="{{Auth::check() ? Auth::user()->last_name . ' ' . Auth::user()->first_name :''}}"
                                                data-parsley-required data-parsley-minlength='5'>
                                     </div>
 
@@ -109,6 +110,7 @@
                                     <div class="form-group">
                                         <label for="email">Your email:</label>
                                         <input name="email" type="text" id="email" class="form-control"
+                                               value="{{Auth::check() ? Auth::user()->email : ''}}"
                                                data-parsley-required data-parsley-type="email">
                                     </div>
                                     <div class="form-group">
@@ -144,37 +146,37 @@
                 </div>
                 <!--end of comments-->
             </div>
-        </div>
-        <!-- end of first line-->
-        <!--Watches on sale-->
-        <div class="row">
-            <h2 class="text-center">Newest watches on sale</h2>
-            @foreach ($watches as  $watch_sale)
-                <div class="latestproducts">
-                    <div class="product-one">
-                        <div class="col-md-4 col-sm-4 product-left p-left">
-                            <div class="product-main simpleCart_shelfItem">
-                                <a href="{{URL::to('watches/'.$watch_sale->gender.'/'.$watch_sale->brand. '/'.
-                                        $watch_sale->slug)}}" class="mask"><img class="img-responsive zoom-img" src="{{url
-                                ('src/images/'. $watch_sale->image)}}" style="max-height: 250px;" alt="{{$watch_sale->image}}"
-                                            />
-                                </a>
-                                <div class="product-bottom">
-                                    <h3>{{strtoupper($watch_sale->brand)}} - {{($watch_sale->gender)}}</h3>
-                                    <p><strong>{{strtoupper($watch_sale->model)}}</strong></p>
-                                    <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$
-                                                    {{$watch_sale->price}}</span></h4>
-                                </div>
-                                <div class="srch">
-                                    <span>-{{$watch_sale->discount}}%</span>
+            <!-- end of first line-->
+            <!--Watches on sale-->
+            <div class="row">
+                <h2 class="text-center">Newest watches on sale</h2>
+                @foreach ($watches as  $watch_sale)
+                    <div class="latestproducts">
+                        <div class="product-one">
+                            <div class="col-md-4 col-sm-4 product-left p-left">
+                                <div class="product-main simpleCart_shelfItem">
+                                    <a href="{{URL::to('watches/'.$watch_sale->gender.'/'.$watch_sale->brand. '/'.
+                                            $watch_sale->slug)}}" class="mask"><img class="img-responsive zoom-img" src="{{url
+                                    ('src/images/'. $watch_sale->image)}}" style="max-height: 250px;" alt="{{$watch_sale->image}}"
+                                                />
+                                    </a>
+                                    <div class="product-bottom">
+                                        <h3>{{strtoupper($watch_sale->brand)}} - {{($watch_sale->gender)}}</h3>
+                                        <p><strong>{{strtoupper($watch_sale->model)}}</strong></p>
+                                        <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$
+                                                        {{$watch_sale->price}}</span></h4>
+                                    </div>
+                                    <div class="srch">
+                                        <span>-{{$watch_sale->discount}}%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    @endif
+        @endif
 
 @endsection
 @section('scripts')
@@ -220,26 +222,28 @@
             var product_id = $("#product_id").val();
             var email = $("#email").val();
             var comment_text = $("#comment_text").val();
-            $.ajax({
-                dataType: 'json',
-                type:'POST',
-                url: '/storeComment',
-                data:{username:username, email:email, comment_text:comment_text, product_id:product_id},
-                success: function (data) {
-                    $('.alert-success').show();
-                    $('.alert-success').html('<h4 class="text-center">Comment successfully added</h4>');
-                    $('.alert-success').delay(5000).fadeOut();
-                    $("#comment_text").val('');
-                    $('.media').append('<a class="pull-left" href="#">' +
-                        '<img class="media-object" src="http://placehold.it/100x100" alt=""></a>'+
-                        '<div class="media-body">'+
-                        '<h4 class="media-heading">'+ username +
-                        '<small><i class="pull-right">just now</i></small>'+
-                        '</h4><br />'+
-                        '<p>'+ comment_text+'</p>'+
-                        '<br /><hr> </div>');
-                }
-            })
+            if(username != "" && email  != "" && product_id != "" && comment_text != "") {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'POST',
+                    url: '/storeComment',
+                    data: {username: username, email: email, comment_text: comment_text, product_id: product_id},
+                    success: function (data) {
+                        $('.alert-success').show();
+                        $('.alert-success').html('<h4 class="text-center">Comment successfully added</h4>');
+                        $('.alert-success').delay(5000).fadeOut();
+                        $("#comment_text").val('');
+                        $('.media').append('<a class="pull-left" href="#">' +
+                            '<img class="media-object" src="http://placehold.it/100x100" alt=""></a>' +
+                            '<div class="media-body">' +
+                            '<h4 class="media-heading">' + username +
+                            '<small><i class="pull-right">just now</i></small>' +
+                            '</h4><br />' +
+                            '<p>' + comment_text + '</p>' +
+                            '<br /><hr> </div>');
+                    }
+                })
+            }
         })
         /******Adding watch to cart*******/
         $('#add_form').submit(function(event) {

@@ -18,7 +18,7 @@
                     <a href="{{ url('/login') }}">Login</a>
                     ·
                 @endif
-                <a href="#">Contact</a>
+                <a href="{{route('contactUs')}}">Contact</a>
             </p>
 
             <p class="footer-company-name">Develop by Bule &copy; 2017</p>

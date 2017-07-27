@@ -15,10 +15,7 @@
     @include('nav.nav')
 </head>
 <body>
-<div class="container">
     @yield('content')
-</div>
-
 @include('nav.footer')
 <script
         src="https://code.jquery.com/jquery-1.12.4.js"

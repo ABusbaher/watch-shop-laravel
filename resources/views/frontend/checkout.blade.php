@@ -71,48 +71,56 @@
                             <div class="form-group">
                                 <div class="col-md-12"><label for="country">Country</label></div>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" id="country" name="country" required="required" value="" />
+                                    <input type="text" class="form-control" id="country" name="country" required="required"
+                                           value=''>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-xs-12">
                                     <label for="first_name">First name:</label>
-                                    <input type="text" name="first_name" id="first_name" class="form-control" required="required" value="" />
+                                    <input type="text" name="first_name" id="first_name" class="form-control"
+                                           required="required" value={{Auth::check() ? Auth::user()->first_name : ''}}>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <label for="last_name">Last Name:</label>
-                                    <input type="text" name="last_name" id="last_name" class="form-control" required="required" value="" />
+                                    <input type="text" name="last_name" id="last_name" class="form-control" required="required"
+                                           value={{Auth::check() ? Auth::user()->last_name : ''}} >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><label for="address">Address:</label></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="address" id="address" class="form-control" required="required" value="" />
+                                    <input type="text" name="address" id="address" class="form-control" required="required"
+                                           value={{Auth::check() ? Auth::user()->address : ''}} >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><label for="city">City:</label></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" id="city" class="form-control" required="required" value="" />
+                                    <input type="text" name="city" id="city" class="form-control" required="required"
+                                           value={{Auth::check() ? Auth::user()->city : ''}} >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><label for="state">State:</label></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="state" id="state" class="form-control" required="required" value="" />
+                                    <input type="text" name="state" id="state" class="form-control" required="required"
+                                           value={{Auth::check() ? Auth::user()->state : ''}}>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><label for="postal_code">Postal Code:</label></div>
                                 <div class="col-md-12">
                                     <input type="text" name="postal_code" id="postal_code" class="form-control"
-                                           required="required" data-parsley-type="number" value="" />
+                                           required="required" data-parsley-type="number"
+                                           value={{Auth::check() ? Auth::user()->postal_code : ''}}>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><label for="phone">Phone Number:</label></div>
                                 <div class="col-md-12">
-                                    <input type="text" id="phone" name="phone" class="form-control" required="required" value="" />
+                                    <input type="text" id="phone" name="phone" class="form-control" required="required"
+                                           value={{Auth::check() ? Auth::user()->phone : ''}} >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -120,7 +128,7 @@
                                 <div class="col-md-12">
                                     <input type="text" id="email" name="email" class="form-control"
                                            required="required" data-parsley-type="email"
-                                           value="" />
+                                           value={{Auth::check() ? Auth::user()->email : ''}}>
                                 </div>
                             </div>
                             <div class="col-md-12" id="btn-margin">

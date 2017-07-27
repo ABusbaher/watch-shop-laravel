@@ -27,7 +27,7 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany('App\Product','order-product','order_id','product_id')
-            //->withPivot('model','slug')
+            //->withPivot('total','paid')
             //->withTimestamps()
             ;
     }
