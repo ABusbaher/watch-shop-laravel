@@ -108,7 +108,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Your e:</label>
+                                        <label for="email">Your email:</label>
                                         <input name="email" type="email" id="email" class="form-control"
                                                value="{{Auth::check() ? Auth::user()->email : ''}}"
                                                data-parsley-required data-parsley-type="email">
