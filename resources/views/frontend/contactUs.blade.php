@@ -36,7 +36,7 @@
                         <label for="name">
                             Name</label>
                         <input type="text" name="name" id="name" class="form-control" required="required"
-                               placeholder="Enter name"
+                               data-parsley-minlength='5' placeholder="Enter name"
                                value="{{Auth::check() ? Auth::user()->last_name . ' ' . Auth::user()->first_name :
                                ''}}">
                     </div>
@@ -44,7 +44,7 @@
                         <label for="subject">
                             Subject</label>
                         <input type="text" id="subject" name="subject" class="form-control" required="required"
-                               placeholder="Enter a subject" >
+                               data-parsley-minlength='5' placeholder="Enter a subject" >
                     </div>
                     <div class="form-group">
                         <label for="email">
@@ -80,22 +80,16 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        /**** validation for contact form ****/
-        $(function () {
-            $('#contact').parsley().on('field:validated', function() {
-                var ok = $('.parsley-error').length === 0;
-            })
-        });
         /*** sending message by email ***/
         $('#contact').submit(function(event) {
             event.preventDefault();
+            $('#contact').parsley().validate();
             var url = $('#contact').attr("action");
             var email = $("#email").val();
             var name = $("#name").val();
             var subject = $("#subject").val();
             var message = $("#message").val();
-
-            if(name != "" && email  != "" && subject != "" && message != "") {
+            if ( $('#contact').parsley().isValid() ) {
                 $.ajax({
                     dataType: 'json',
                     type: 'POST',

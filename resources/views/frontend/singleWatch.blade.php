@@ -108,8 +108,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Your email:</label>
-                                        <input name="email" type="text" id="email" class="form-control"
+                                        <label for="email">Your e:</label>
+                                        <input name="email" type="email" id="email" class="form-control"
                                                value="{{Auth::check() ? Auth::user()->email : ''}}"
                                                data-parsley-required data-parsley-type="email">
                                     </div>
@@ -208,21 +208,16 @@
             });
         });
 
-        /**** validation for comment form ****/
-        $(function () {
-            $('#comment').parsley().on('field:validated', function() {
-                var ok = $('.parsley-error').length === 0;
-            })
-        });
 
         /******Adding a comment*******/
         $('#comment').submit(function(event){
             event.preventDefault();
+            $('#comment').parsley().validate();
             var username = $("#username").val();
             var product_id = $("#product_id").val();
             var email = $("#email").val();
             var comment_text = $("#comment_text").val();
-            if(username != "" && email  != "" && product_id != "" && comment_text != "") {
+            if ( $('#comment').parsley().isValid() ) {
                 $.ajax({
                     dataType: 'json',
                     type: 'POST',
