@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2017 at 10:46 PM
+-- Generation Time: Apr 30, 2018 at 08:54 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -96,21 +96,10 @@ INSERT INTO `comments` (`id`, `username`, `email`, `product_id`, `created_at`, `
 (5, 'mikac', 'mile@m.com', 6, '2017-06-05 20:23:42', '2017-06-05 20:23:42', 'One more'),
 (6, 'zile z', 'zika@z.com', 1, '2017-06-05 20:41:18', '2017-06-05 20:41:18', 'Nice!!!'),
 (7, 'Petar', 'pera@p.com', 1, '2017-06-05 20:43:56', '2017-06-05 20:43:56', 'More testing'),
-(8, 'sdfaal', 'safd@lčsdf.sdfa', 5, '2017-06-07 17:15:12', '2017-06-07 17:15:12', 'sfdaasfdasfd'),
-(9, 'sdfaal', 'safd@lčsdf.sdfa', 5, '2017-06-07 17:15:32', '2017-06-07 17:15:32', 'adfssdfasfdafsd'),
-(10, 'FASDasfd', 'ana@a.com', 5, '2017-06-12 22:17:13', '2017-06-12 22:17:13', 'sfa'),
-(11, 'sfad', 'sfa@sdf.cos', 7, '2017-06-14 21:01:46', '2017-06-14 21:01:46', 'sdasdf'),
-(12, 'sfad', 'sfa@sdf.cos', 7, '2017-06-14 21:02:50', '2017-06-14 21:02:50', 'sdfa'),
-(13, 'dsf', 'dsfad@sdf.sdf', 7, '2017-06-14 21:03:21', '2017-06-14 21:03:21', 'sddsf'),
-(14, 'rwesdfa', 'dsfad@sdf.sdf', 7, '2017-06-14 21:03:39', '2017-06-14 21:03:39', 'asdf'),
-(15, 'afsd', 'sdfa@sdaf.sdf', 7, '2017-06-14 21:04:30', '2017-06-14 21:04:30', 'sfad'),
-(16, 'das', 'dsds@sdfk.sdf', 7, '2017-06-14 21:04:50', '2017-06-14 21:04:50', 'sdf'),
-(17, 'lčasfsd', 'safd@lčsdf.sdfa', 5, '2017-06-14 22:26:15', '2017-06-14 22:26:15', 'sadfasdffsdasdf'),
-(18, 'fasd', 'sdfa', 5, '2017-06-14 22:26:31', '2017-06-14 22:26:31', 'sdf'),
-(19, 'fasd', 'sdfa@sdaf.sdf', 5, '2017-06-14 22:26:42', '2017-06-14 22:26:42', 'sd'),
-(20, 'sdafasfd', 'sdfa@sdaf.sdf', 5, '2017-06-15 09:14:18', '2017-06-15 09:14:18', 'asdfasdf'),
-(21, 'sdafasfd', 'sdfa@sdaf.sdf', 5, '2017-06-15 09:14:42', '2017-06-15 09:14:42', 'aaaaa'),
-(22, 'sadfasdf', 'sdfa@sdaf.sdf', 4, '2017-06-16 20:40:28', '2017-06-16 20:40:28', 'asdfasdf');
+(24, 'test test', 'test@t.com', 1, '2017-07-27 17:38:39', '2017-07-27 17:38:39', 'One more test'),
+(66, 'Marinko Magla', 'marinko@m.com', 8, '2017-07-30 11:23:18', '2017-07-30 11:23:18', 'Armani looks very nice'),
+(68, 'Živan Radosavljević', 'zika@alkohol.rs', 8, '2018-04-22 18:14:44', '2018-04-22 18:14:44', 'Great!'),
+(72, 'teds@a.sd', 'teds@a.sd', 5, '2018-04-23 22:33:01', '2018-04-23 22:33:01', 'sfdff sfd');
 
 -- --------------------------------------------------------
 
@@ -184,7 +173,6 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`id`, `name`, `product_id`, `created_at`, `updated_at`) VALUES
 (29, '592386bf45f6f-100009730_v_1484915076.jpg', 13, '2017-05-22 22:47:59', '2017-05-22 22:47:59'),
 (28, '59238634a4387-s-l300.jpg', 12, '2017-05-22 22:45:40', '2017-05-22 22:45:40'),
-(25, '592230a939487-Emporio_Armani_AR1863_3_1600x1200.jpg', 8, '2017-05-21 22:28:25', '2017-05-21 22:28:25'),
 (24, '592230a8df89d-ea-ar1863_6.jpg', 8, '2017-05-21 22:28:24', '2017-05-21 22:28:24'),
 (23, '592230a8e1fae-AR1863_main.jpg', 8, '2017-05-21 22:28:24', '2017-05-21 22:28:24'),
 (11, '59222a4175c43-508837-41-55-50_1.jpg', 1, '2017-05-21 22:01:05', '2017-05-21 22:01:05'),
@@ -197,6 +185,48 @@ INSERT INTO `images` (`id`, `name`, `product_id`, `created_at`, `updated_at`) VA
 (22, '59222fe7230b0-citizen-men_s-bracelet-blue-dial-watch-bm7251-53l_2.jpg', 7, '2017-05-21 22:25:11', '2017-05-21 22:25:11'),
 (30, '5923874a8a8f6-s-l225.jpg', 13, '2017-05-22 22:50:18', '2017-05-22 22:50:18'),
 (31, '5924db5a54b68-177.jpg', 14, '2017-05-23 23:01:14', '2017-05-23 23:01:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `comment_id` int(11) NOT NULL DEFAULT '0',
+  `reply_id` int(11) NOT NULL DEFAULT '0',
+  `likes_count` int(11) NOT NULL DEFAULT '0',
+  `dislikes_count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `comment_id`, `reply_id`, `likes_count`, `dislikes_count`) VALUES
+(1, 1, 0, 27, 4),
+(2, 3, 0, 7, 2),
+(3, 4, 0, 6, 2),
+(4, 5, 0, 3, 2),
+(5, 6, 0, 2, 0),
+(6, 7, 0, 1, 0),
+(7, 24, 0, 0, 0),
+(8, 66, 0, 6, 1),
+(9, 68, 0, 6, 2),
+(13, 72, 0, 1, 1),
+(14, 0, 2, 3, 2),
+(15, 0, 3, 1, 1),
+(16, 0, 4, 2, 0),
+(17, 0, 5, 1, 1),
+(18, 0, 6, 0, 0),
+(19, 0, 7, 0, 0),
+(20, 0, 8, 0, 0),
+(21, 0, 9, 0, 0),
+(22, 0, 10, 0, 0),
+(24, 0, 11, 4, 0),
+(25, 0, 12, 0, 0),
+(26, 0, 13, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -240,7 +270,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (49, '2017_06_26_224522_add_collums_to_orders_table', 11),
 (50, '2017_06_27_225340_drop_colums_to_order-product_table', 12),
 (51, '2017_07_10_102725_drop_user_id_to_orders_table', 13),
-(52, '2017_07_10_222219_add_paid_to_orders_table', 14);
+(52, '2017_07_10_222219_add_paid_to_orders_table', 14),
+(53, '2018_04_22_180224_create_likes_table', 15),
+(54, '2018_04_24_222835_create_replies_table', 16);
 
 -- --------------------------------------------------------
 
@@ -266,6 +298,9 @@ INSERT INTO `order-product` (`id`, `order_id`, `product_id`, `created_at`, `upda
 (3, 8, 8, '2017-06-27 21:15:30', '2017-06-27 21:15:30'),
 (4, 9, 3, '2017-06-27 21:33:53', '2017-06-27 21:33:53'),
 (5, 10, 8, '2017-07-03 18:17:14', '2017-07-03 18:17:14'),
+(35, 40, 14, '2017-07-26 16:14:17', '2017-07-26 16:14:17'),
+(34, 39, 7, '2017-07-13 22:35:17', '2017-07-13 22:35:17'),
+(33, 38, 13, '2017-07-13 22:35:17', '2017-07-13 22:35:17'),
 (32, 37, 7, '2017-07-12 21:37:18', '2017-07-12 21:37:18'),
 (31, 36, 7, '2017-07-11 22:18:02', '2017-07-11 22:18:02'),
 (30, 35, 3, '2017-07-11 22:18:02', '2017-07-11 22:18:02'),
@@ -302,6 +337,9 @@ INSERT INTO `orders` (`id`, `total`, `customer_id`, `created_at`, `updated_at`, 
 (7, 719.98, 1, '2017-06-27 21:15:30', '2017-06-27 21:15:30', 2, 'large', 0),
 (9, 199.98, 1, '2017-06-27 21:33:53', '2017-06-27 21:33:53', 2, 'large', 0),
 (10, 839.97, 1, '2017-07-03 18:17:14', '2017-07-03 18:17:14', 3, 'small', 0),
+(40, 149.99, 5, '2017-07-26 16:14:17', '2017-07-26 16:14:17', 1, 'small', 0),
+(39, 249.99, 5, '2017-07-13 22:35:17', '2017-07-13 22:35:17', 1, 'small', 0),
+(38, 359.99, 5, '2017-07-13 22:35:16', '2017-07-13 22:35:16', 1, 'small', 0),
 (37, 499.98, 5, '2017-07-12 21:37:18', '2017-07-12 21:37:18', 2, 'medium', 0),
 (36, 499.98, 4, '2017-07-11 22:18:02', '2017-07-11 22:18:02', 2, 'medium', 1),
 (35, 99.99, 4, '2017-07-11 22:18:02', '2017-07-11 22:18:02', 1, 'small', 1),
@@ -358,8 +396,43 @@ INSERT INTO `products` (`id`, `model`, `brand_id`, `gender_id`, `description`, `
 (7, 'BM7251 53L', 2, 1, 'Nunc porta velit eu sapien egestas porta. Integer dictum cursus varius. Curabitur ullamcorper, metus id faucibus vestibulum, lorem nisl condimentum arcu, ac hendrerit libero leo luctus sem. Integer ac risus at enim pellentesque tempus. In efficitur ex a vehicula aliquam. Aliquam aliquam tincidunt elit a viverra. Aliquam vestibulum pharetra auctor. Mauris facilisis dui a ex porta, eget imperdiet diam interdum. Curabitur quis ante in risus venenatis luctus. Morbi tincidunt nec sapien aliquam sagittis. Vestibulum suscipit sapien eu mattis sagittis.', 249.99, 1, '2017-05-20 21:07:59', '2017-06-01 23:01:59', 299.00, 20.00, 'bm7251-53l'),
 (8, 'AR1863', 5, 1, 'Integer tempus neque at placerat mollis. Aenean tellus nunc, efficitur non purus in, porta sollicitudin eros. In maximus tellus scelerisque mollis vehicula. Suspendisse potenti. Aliquam vitae blandit turpis, ut sollicitudin nulla. Morbi urna diam, eleifend eget porta sed, tempor eu tortor. Vestibulum tincidunt lacus eu dui tempor, vitae mollis dui interdum. In semper, orci in commodo dapibus, mi magna tincidunt diam, quis tristique tortor urna non neque. Nunc tristique nisl eget nisi rutrum, sit amet vehicula ex scelerisque. Pellentesque ut eros interdum, commodo quam sit amet, auctor dolor. In nulla massa, tincidunt in dui vitae, pretium bibendum nisi. Sed vel nibh in quam malesuada sagittis. Donec fringilla tempor velit quis varius. Fusce a sapien ullamcorper, lacinia nulla vitae, varius lectus. Aenean dapibus erat quis feugiat facilisisaa.', 279.99, 1, '2017-05-20 21:12:12', '2017-06-07 19:01:42', 329.99, 12.00, 'ar1863'),
 (12, 't0332101105300', 7, 2, 'Nulla a mi at quam semper molestie non rutrum quam. Mauris pellentesque, arcu vel bibendum pellentesque, lectus urna ullamcorper elit, eu viverra arcu lectus eu felis. Nam ut purus vel nisi rhoncus vestibulum. Donec rhoncus justo dolor, vitae pretium augue rutrum ut. Fusce varius ligula sed faucibus congue. Praesent lacinia faucibus vulputate. Quisque purus urna, viverra quis luctus quis, venenatis vitae mi.', 199.99, 1, '2017-05-22 22:45:40', '2017-06-01 23:01:23', 250.00, 30.00, 't0332101105300'),
-(13, 'GRAND PRIX 1513474', 6, 1, 'In semper sem eget turpis cursus egestas. Proin semper dapibus urna sit amet lobortis. Aliquam erat volutpat. Suspendisse eget nisi tempor, dictum enim in, dictum massa. Quisque posuere tellus augue. Curabitur pulvinar eget risus et mollis. Vivamus imperdiet gravida lectus vitae ornare. Vivamus non tempus libero. Pellentesque eget mauris nec neque ullamcorper blandit a at lorem. Curabitur vulputate felis vitae enim lobortis dignissim. Duis sagittis felis id dui laoreet, vitae feugiat arcu dignissim. Ut mollis turpis vel massa auctor, quis interdum massa fringilla. Donec sit amet ullamcorper enim, sit amet feugiat felis. Aenean scelerisque orci a ligula blandit hendrerit. Vestibulum interdum dictum nunc non vestibulum.', 359.99, 1, '2017-05-22 22:47:59', '2017-06-07 19:17:33', 430.00, 13.00, 'grand-prix-1513474'),
+(13, 'GRAND PRIX 1513474', 6, 1, 'In semper sem eget turpis cursus egestas. Proin semper dapibus urna sit amet lobortis. Aliquam erat volutpat. Suspendisse eget nisi tempor, dictum enim in, dictum massa. Quisque posuere tellus augue. Curabitur pulvinar eget risus et mollis. Vivamus imperdiet gravida lectus vitae ornare. Vivamus non tempus libero. Pellentesque eget mauris nec neque ullamcorper blandit a at lorem. Curabitur vulputate felis vitae enim lobortis dignissim. Duis sagittis felis id dui laoreet, vitae feugiat arcu dignissim. Ut mollis turpis vel massa auctor, quis interdum massa fringilla. Donec sit amet ullamcorper enim, sit amet feugiat felis. Aenean scelerisque orci a ligula blandit hendrerit. Vestibulum interdum dictum nunc non vestibulum.', 359.99, 1, '2017-05-22 22:47:59', '2017-07-27 17:42:40', 430.00, 5.00, 'grand-prix-1513474'),
 (14, 'ELEGANT', 2, 1, 'Morbi at neque malesuada, venenatis enim id, tincidunt quam. Proin rutrum nunc ut mauris rutrum, et viverra nisl tempus. Phasellus non porttitor sapien. Sed bibendum lobortis purus id tempus. Praesent tristique aliquet condimentum. Cras consequat mollis dui, facilisis maximus neque. Quisque dictum, mi ac vulputate sollicitudin, sem ex facilisis enim, at viverra ligula nulla id turpis. Integer velit massa, malesuada a volutpat vel, accumsan at sapien. Etiam in lacinia diam. Nam arcu erat, posuere id gravida ac, hendrerit ut risus. Integer ipsum urna, laoreet non sapien vel, venenatis rhoncus leo. Donec facilisis urna at arcu rhoncus gravida.', 149.99, 1, '2017-05-23 23:01:13', '2017-06-01 23:00:50', 220.00, 33.00, 'elegant');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `replies`
+--
+
+CREATE TABLE `replies` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `reply_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `replies`
+--
+
+INSERT INTO `replies` (`id`, `username`, `email`, `product_id`, `comment_id`, `reply_text`, `created_at`, `updated_at`) VALUES
+(11, 'werwe', 'ssddf@sd.ew', 6, 1, 'we ew', '2018-04-27 22:05:48', '2018-04-27 22:05:48'),
+(2, 'asdfsd', 'ssd@sd.sd', 6, 1, 'saaeewwe', '2018-04-24 21:58:09', '2018-04-24 21:58:09'),
+(3, 'dfssdd', 'asssdf@sd.sa', 6, 1, 'assddssdf', '2018-04-24 22:01:38', '2018-04-24 22:01:38'),
+(4, 'sdfwe', 'sdf@dssl.ww', 6, 1, 'sadfwweew', '2018-04-24 22:08:36', '2018-04-24 22:08:36'),
+(5, 'sdfwe', 'sdf@dssl.ww', 6, 1, 'sadfwweew', '2018-04-24 22:08:36', '2018-04-24 22:08:36'),
+(6, '234234', 'asdf@ss.we', 6, 1, '234523', '2018-04-24 22:09:20', '2018-04-24 22:09:20'),
+(7, 'sdwwa', 'aaa@aa.ss', 6, 1, 'swewe', '2018-04-24 22:11:25', '2018-04-24 22:11:25'),
+(8, 'wer1221', 'sdf@ds.sd', 6, 1, 'fsd sdf asd', '2018-04-25 22:29:23', '2018-04-25 22:29:23'),
+(9, '222222', 'sdf@ds.sd', 6, 5, '122121', '2018-04-25 22:36:37', '2018-04-25 22:36:37'),
+(10, 'woeee', 'sd@sd.aw', 8, 68, 'qw qwdasd', '2018-04-25 22:37:19', '2018-04-25 22:37:19'),
+(12, 'rwewer', 'sdsd@sdf.sd', 8, 66, 'eeeeeeeee d', '2018-04-27 22:20:38', '2018-04-27 22:20:38'),
+(13, 'Milan Tarot', 'mikitarot@m.se', 6, 3, 'Agree!', '2018-04-29 16:53:21', '2018-04-29 16:53:21');
 
 -- --------------------------------------------------------
 
@@ -430,9 +503,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `role_id`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `state`, `city`, `address`, `postal_code`) VALUES
-(1, 'admin', 'adminović', '123456', 1, 'admin@a.com', '$2y$10$UEqsJR3s5bkAbv7yWUuVqu3Tqni1lwOz4B2oqz1SXn.22Dl3St2he', 'CgmOkDPN2mQV0VtmMTZc8a7fV34yPlwsE7gwtThQapKF69E3WBW8c5I1IedB', NULL, NULL, '', '', '', ''),
+(1, 'admin', 'adminović', '123456', 1, 'admin@a.com', '$2y$10$UEqsJR3s5bkAbv7yWUuVqu3Tqni1lwOz4B2oqz1SXn.22Dl3St2he', 'BA5sswUAs4DUOYDtXDzlNzEktK6C0k0hNPlbfOTA5zu0RubpvMovzmFNlygD', NULL, NULL, '', '', '', ''),
 (2, 'user1', 'user1LastName', '111222', 2, 'user1@u.com', '$2y$10$DrZhe8l.iLYjDLeLuTXf3..6OZt4IoXL1Q1jc1i0mhKqfF8AoOhqu', 'DvWkb7IyJm9Pjwdy4KnuES9YHGhEE0ytw9SxINzN2nEEUfRAQQ7AxvPfggw8', NULL, NULL, '', '', '', ''),
-(3, 'test', 'test', '56562323', 2, 'test@t.com', '$2y$10$5Co1H4utXpS1YjAZlvI4le1M/heXrdZYfhXeYmUvsVh.U/wH59pNu', 'BFf6EONkyTAaS0gyZDajybUSRvf3V04LTGT4ZGFg4Ak3TL2m5JGTi7TpI2fw', '2017-05-18 11:23:15', '2017-05-18 11:23:15', 'Spain', 'Barcelona', 'Camp Nou 2', '140000'),
+(3, 'test', 'test', '56562323', 2, 'test@t.com', '$2y$10$5Co1H4utXpS1YjAZlvI4le1M/heXrdZYfhXeYmUvsVh.U/wH59pNu', 'uzvMB0YohRbNEtSriOgduIycBpLsMGgsnAx3gvD8krLr4lfDD9YDPmbdndwh', '2017-05-18 11:23:15', '2017-05-18 11:23:15', 'Spain', 'Barcelona', 'Camp Nou 2', '140000'),
 (4, 'test2', 'test2', '2346', 2, 'test2@t.com', '$2y$10$rCI6QgHCCBSTnDxy1bd8b.hJYeqdV5nc8b.fRWhahNWSmb2nkJney', 'jmLT2F2u1QdKu1oUxxRgq2A5ssOHEBs8hBRiN7TXJYGtzQ5UKKCtBhyIonNy', '2017-05-18 18:54:49', '2017-05-18 18:54:49', 'Italy', 'Milano', 'San Siro 12', '12000'),
 (5, 'test3', 'test3', '4142', 2, 'test@t.com3', '$2y$10$JmoGrR.TNbHY7D5HVxV0BenmaJCxj2dx48eQbkNeDta16NO6EPtxW', 'K3ghtYqgk9HdoIBARaTvS0LTv2YvZFn9c0dQbf0FWlASmNF3NoIxARla1484', '2017-05-18 19:01:58', '2017-05-18 19:01:58', 'Spain', 'Madrid', 'Visente Calderon 14', '45000'),
 (6, 'test4', 'test4', '111222', 2, 'test4@t.com', '$2y$10$JiM99fhHlIQqUrdXAusN0Oc/lDyKfe3WI.sP.YLEeQdgOBNPuLlfu', 'PCTKBvIKGu1sQe3VfWgXkOEq4B02mPyIcT1SciFZtIMCtnniMRRHm6FmPAwx', '2017-07-09 09:01:50', '2017-07-09 09:01:50', 'test', 'test', 'test', '11111');
@@ -480,6 +553,12 @@ ALTER TABLE `images`
   ADD KEY `images_product_id_foreign` (`product_id`);
 
 --
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -511,6 +590,14 @@ ALTER TABLE `products`
   ADD UNIQUE KEY `products_model_unique` (`model`),
   ADD KEY `products_brand_id_foreign` (`brand_id`),
   ADD KEY `products_gender_id_foreign` (`gender_id`);
+
+--
+-- Indexes for table `replies`
+--
+ALTER TABLE `replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `replies_product_id_foreign` (`product_id`),
+  ADD KEY `replies_comment_id_foreign` (`comment_id`);
 
 --
 -- Indexes for table `roles`
@@ -550,7 +637,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 --
 -- AUTO_INCREMENT for table `customers`
 --
@@ -567,25 +654,35 @@ ALTER TABLE `genders`
 ALTER TABLE `images`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `order-product`
 --
 ALTER TABLE `order-product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `replies`
+--
+ALTER TABLE `replies`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `roles`
 --
