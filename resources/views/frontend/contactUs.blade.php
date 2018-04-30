@@ -10,6 +10,7 @@
         <div class="row">
             <div id="successMail" class="md-col-8 md-offset-2"></div>
         </div>
+        @include('errors.error')
         <div class="row">
             <div class="col-md-12">
                 <h2 class="text-center">Contact us</h2>
@@ -48,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">
-                            Email Address</label>
+                            Email address</label>
                         <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                     </span>
@@ -57,12 +58,17 @@
                                    value={{Auth::check() ? Auth::user()->email : ''}}>
                         </div>
                     </div>
+                    <div class="form-group">
+                        {!! NoCaptcha::display() !!}
+                        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                    </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('message', 'Message') !!}
                         {!! Form::textarea('message', '', ['class' => 'form-control','data-parsley-required']) !!}
                     </div>
+
                     <button type="submit" class="pull-right btn btn-primary">Send a message</button>
                 </div>
             {!! Form::close() !!}
@@ -74,6 +80,7 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script>
         $.ajaxSetup({
             headers: {
@@ -81,35 +88,49 @@
             }
         });
         /*** sending message by email ***/
-        $('#contact').submit(function(event) {
+        $('#contact').submit(function(event){
             event.preventDefault();
+            $("#contact").validate({
+                ignore: ".ignore",
+                rules: {
+                    hiddenRecaptcha: {
+                        required: function () {
+                            if (grecaptcha.getResponse() == '') {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                },
+            })
             $('#contact').parsley().validate();
-            var url = $('#contact').attr("action");
             var email = $("#email").val();
             var name = $("#name").val();
             var subject = $("#subject").val();
             var message = $("#message").val();
-            if ( $('#contact').parsley().isValid() ) {
+            if ($('#contact').parsley().isValid()) {
                 $.ajax({
                     dataType: 'json',
                     type: 'POST',
-                    url: url,
+                    url: '/contact',
                     data: {
                         name: name,
                         email: email,
                         subject: subject,
-                        message: message
+                        message: message,
+                        captcha: grecaptcha.getResponse()
                     },
-                    success: function () {
-                        $('#successMail').append('<div class="alert alert-success">' +
-                            '<h3 class="text-center">Message successfully' +
-                            ' send. We will respond you soon</h3></div>');
-                        $('#successMail').delay(5000).fadeOut();
-                        $("#subject").val('');
-                        $("#message").val('');
-                    },
+                }).done(function (data) {
+                    $('#successMail').append('<div class="alert alert-success">' +
+                        '<h3 class="text-center">Message successfully' +
+                        ' send. We will respond you soon</h3></div>');
+                    $('#successMail').delay(5000).fadeOut();
+                    $("#subject").val('');
+                    $("#message").val('');
                 })
             }
         })
+
     </script>
 @endsection

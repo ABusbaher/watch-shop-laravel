@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
 use App\Like;
+use App\Reply;
 use Illuminate\Http\Request;
 
-class CommentsController extends Controller
+class ReplyController extends Controller
 {
     public function store(Request $request){
         $this->validate($request, [
             'email' => 'required|email',
             'username' => 'required|min:5',
-            'comment_text' => 'required'
+            'reply_text' => 'required'
         ]);
         $input = $request->all();
-        $comment = Comment::create($input);
-        $like = Like::create(['comment_id' => $comment->id]);
-        return response()->json($comment);
+        $reply = Reply::create($input);
+        $like = Like::create(['reply_id' => $reply->id]);
+        return response()->json($reply);
     }
 }

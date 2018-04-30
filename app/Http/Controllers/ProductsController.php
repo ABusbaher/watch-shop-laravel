@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Comment;
 use App\Image;
+use App\Like;
 use App\Mail\ContactUsMail;
 use App\Product;
+use App\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
@@ -75,6 +77,7 @@ class ProductsController extends Controller
                 $query->where($gender);
             })->first()
         */
+        //single watch
         $watch = Product::where('slug', $slug)->first();
         if(!$watch){
             return redirect('/index');
@@ -84,7 +87,22 @@ class ProductsController extends Controller
 
         $images = Image::where('product_id',$watch->id)->get();
         $comments = Comment::where('product_id',$watch->id)->get();
+        /*   $repliess = $comments->pluck('id');
+           $rep = $repliess->all();
+           $replies = Reply::whereIn('comment_id', $rep)->get();
+           foreach ($comments as $comment){
+               $replies = Reply::where('comment_id',$comment->id)->get();
+               //explode(',', $group->projects))
+               dd($replies);
+           }
+           //$replies = Reply::where('comment_id',1)->get();
+           //dd($replies);
+          /* $comm_ids = $comments->pluck('id');
+           $c = $comm_ids->all();
+           $likes = Like::whereIn('comment_id', $c)->get();
+           //dd($likes);*/
 
+        //watches on sale(three newest)
         $watches =  DB::table('products')
             ->join('images', 'product_id', '=', 'products.id')
             ->join('brands', 'brands.id', '=', 'products.brand_id')
@@ -100,26 +118,28 @@ class ProductsController extends Controller
         return view('frontend.singleWatch',compact('watch','gender','brand','images','watches','comments'));
     }
 
-    public function contact(Request $request){
-        $mail = $request->all();
-        $data = [
-            'email'     => $mail['email'],
-            'subject'   => $mail['subject'],
-            'message1'   => $mail['message'],
-            'name'      => $mail['name'],
-        ];
-       /* other way
-        $receiverAddress = 'b860174afc-ae4fab@inbox.mailtrap.io';
-        Mail::to($receiverAddress)->send(new ContactUsMail($data));*/
+    public function contact(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'subject' => 'required|min:5',
+            'name' => 'required|min:5',
+            'message' => 'required',
+            'captcha' => 'required|captcha'
+        ]);
+        $data = $request->all();
 
-        Mail::send('mails.contactForm', $data, function($message) use ($data)
+        $receiverAddress = 'b860174afc-ae4fab@inbox.mailtrap.io';
+        Mail::to($receiverAddress)->send(new ContactUsMail($data));
+
+        //other way
+       /* Mail::send('mails.contactForm',  $data, function($message) use ($data)
         {
-            $message->from($data['email']);
+            $message->from($data->email);
             $message->to('b860174afc-ae4fab@inbox.mailtrap.io');
-            $message->subject($data['subject']);
-        });
-        //return redirect()->back();
-        return response()->json([$data]);
+            $message->subject($data->subject);
+        });*/
+        return response()->json(['done']);
     }
 
 }

@@ -46,6 +46,6 @@ class LoginController extends Controller
     {
         return Session::get('backUrl') ? Session::get('backUrl') :   $this->redirectTo;
     }
-
+    //protected $redirectTo = '/index';
 
 }

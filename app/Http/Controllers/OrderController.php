@@ -22,6 +22,16 @@ class OrderController extends Controller
     }
 
     public function storeOrder(Request $request){
+        $this->validate($request, [
+            'email' => 'required|email',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
+            'state' => 'required|min:3',
+            'city' => 'required|min:3',
+            'address' => 'required|min:3',
+            'phone' => 'required|min:5',
+            'postal_code' => 'required|numeric'
+        ]);
         $input = $request->all();
         /*** STORING CUSTOMER INFORMATION ***/
         $customer = Customer::firstOrCreate([

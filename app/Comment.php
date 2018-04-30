@@ -17,4 +17,14 @@ class Comment extends Model
     {
         return $this->belongsTo(Product::class,'product_id');
     }
+
+    public function likes()
+    {
+        return $this->hasOne('App\Like');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Reply');
+    }
 }

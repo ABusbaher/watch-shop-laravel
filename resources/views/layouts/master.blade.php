@@ -22,6 +22,7 @@
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
         crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="{{URL::to('js/parsley.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::to('js/laravel-parsley.min.js')}}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

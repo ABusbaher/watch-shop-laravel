@@ -10,7 +10,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="alert alert-danger" id="result"></div>
+            <div class="alert alert-danger" id="result">@include('errors.error')</div>
             <!-----SHOWING SESSIONS------->
             @if(Session::has('watch_created'))
                 <div class="alert alert-success col-md-8 col-md-offset-2">

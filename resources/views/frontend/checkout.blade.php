@@ -19,6 +19,7 @@
     @else
     <div class="container">
         <div class="row">
+            @include('errors.error')
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <h2>Order details:</h2>
                 <table class="table table-hover">

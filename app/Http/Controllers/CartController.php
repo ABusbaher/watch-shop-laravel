@@ -7,23 +7,27 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
 
 
 class CartController extends Controller
 {
-    public function showCart() {
+    public function showCart()
+    {
         $cartItems = Cart::content();
         return view('frontend.cart',compact('cartItems'));
     }
 
-    public function addToCart(Request $request) {
+    public function addToCart(Request $request)
+    {
         $input = $request->all();
         $cart = Cart::add($input['product_id'], $input['model'], $input['quantity'], $input['price'], ['size' =>
             $input['size']])->associate('App\Product');
         return response()->json([$cart]);
     }
 
-    public function deleteItem($id) {
+    public function deleteItem($id)
+    {
         Cart::remove($id);
         return response()->json(['done']);
     }

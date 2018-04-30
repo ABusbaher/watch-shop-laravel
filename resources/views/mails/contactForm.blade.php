@@ -1,3 +1,3 @@
-<h1>{{$subject}}</h1>
-<p>{{$message1}}</p>
-<p>Send by:{{$name}}</p>
+<h1>{{$data['subject']}}</h1>
+<p>{{$data['message']}}</p>
+<p>Send by:{{$data['name']}}</p>

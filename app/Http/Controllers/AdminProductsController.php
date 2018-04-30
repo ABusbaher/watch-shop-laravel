@@ -55,6 +55,15 @@ class AdminProductsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'brand_id' => 'required|min:3',
+            'model' => 'required|min:5',
+            'description' => 'required',
+            'old_price' => 'required|numeric',
+            'price' => 'required|numeric',
+            'discount' => 'required|numeric',
+            'name' => 'required|image|mimes:jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF'
+        ]);
         $input = $request->except(['name']);
         if($request->has('sale')){
             $input['sale'] = $request->sale;
@@ -93,17 +102,6 @@ class AdminProductsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -113,6 +111,14 @@ class AdminProductsController extends Controller
     public function update(Request $request, $id)
     {
         $watch = Product::findOrFail($id);
+        $this->validate($request, [
+            'brand_id' => 'required|min:3',
+            'model' => 'required|min:5',
+            'description' => 'required',
+            'old_price' => 'required|numeric',
+            'price' => 'required|numeric',
+            'discount' => 'required|numeric'
+        ]);
         $input = $request->all();
         if($request->has('sale')){
             $input['sale'] = 1;
@@ -133,7 +139,6 @@ class AdminProductsController extends Controller
 
     public function addImages(Request $request)
     {
-
         $file = $request->file('file');
         if($file){
             $name = uniqid().'-'.$file->getClientOriginalName();

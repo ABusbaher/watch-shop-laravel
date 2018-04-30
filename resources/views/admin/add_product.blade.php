@@ -9,6 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @include('errors.error')
                 <h2 class="text-center">Add new watch</h2>
                 {!! Form::open(['method'=> 'POST','action' => 'AdminProductsController@store','files'=>true,
                 'id'=>'addWatch','data-parsley-validate'=>'']) !!}

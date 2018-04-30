@@ -52,10 +52,14 @@ Route::group(['middleware'=>'subscriber'],function() {
 });
 
 Route::post('/storeComment', 'CommentsController@store')->name('storeComment');
+Route::post('/storeReply', 'ReplyController@store')->name('storeReply');
 Route::post('/storeOrder', 'OrderController@storeOrder')->name('storeOrder');
 Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
 Route::delete('/deleteItem/{id}', 'CartController@deleteItem')->name('deleteItem');
 Route::put('/updateCart/{id}', 'CartController@updateCart')->name('updateCart');
 Route::post('/contact', 'ProductsController@contact')->name('contact');
-
+Route::put('/likeIt/{id}', 'LikeController@likeIt')->name('likeIt');
+Route::put('/likeItR/{id}', 'LikeController@likeItR')->name('likeItR');
+Route::put('/dislikeIt/{id}', 'LikeController@dislikeIt')->name('dislikeIt');
+Route::put('/dislikeItR/{id}', 'LikeController@dislikeItR')->name('dislikeItR');
 
